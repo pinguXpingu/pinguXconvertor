@@ -31,15 +31,6 @@ public class MainActivity extends AppCompatActivity {
                 "Knot <-> Km",
                 "String tools",
         };
-        String[] strselectorsArray=new String[] {
-                "String <-> binary",
-                "String <-> base64",
-                "String <-> base32",
-                "String ->> sha256",
-                "String ->> sha512",
-                "String ->> md5",
-        };
-
         ArrayAdapter<String> spinnerFiller=new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, selectorArray);
         spinnerFiller.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         selector.setAdapter(spinnerFiller);
