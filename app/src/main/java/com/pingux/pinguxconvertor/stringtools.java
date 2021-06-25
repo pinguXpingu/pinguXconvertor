@@ -9,7 +9,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,9 +34,9 @@ public class stringtools extends AppCompatActivity {
 
         String[] strselectorsArray = new String[]{
                 "String <-> Binary",
-                "Binary <-> String",
                 "String <-> Base64",
-                "Base64 ->> String",
+                "Binary <-> String",
+                "Base64 <-> String",
 
         };
         ArrayAdapter<String> spinnerFiller = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, strselectorsArray);
@@ -60,7 +62,7 @@ public class stringtools extends AppCompatActivity {
                         stringText.setText(b642str(txt.toString()));
                     default:
                         Context con=getApplicationContext();
-                        CharSequence msg="Bir hata meydana geldi™";
+                        CharSequence msg="Input Error";
                         int dur= Toast.LENGTH_SHORT;
                         Toast t=Toast.makeText(con,msg,dur);
                         t.setGravity(Gravity.BOTTOM|Gravity.CENTER,0,0);
@@ -87,33 +89,66 @@ public class stringtools extends AppCompatActivity {
 
             }
         });
+
+        stringText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                stringText.setText("");
+            }
+        });
     }
-    private static String str2bin(String s){
+
+    private String str2bin(String s){
         StringBuilder str=new StringBuilder();
         char[] chars=s.toCharArray();
 
         for(char aChar:chars) {
-            str.append(String.format("%8s", Integer.toBinaryString(aChar)).replaceAll(" ", "0"));
+            str.append(String.format("%8s", Integer.toBinaryString(aChar)).replaceAll(" ", " 0"));
         }
-        return str.toString();
+        return str.toString().trim();
     }
 
-    private static String str2b64(String s){
+    private String str2b64(String s){
         byte[] string2Bytes=s.getBytes();
         return Base64.getEncoder().encodeToString(string2Bytes);
     }
 
-    private static String bin2str(String s){
-        String[] ss = s.split( " " );
-        StringBuilder sb = new StringBuilder();
-        for ( int i = 0; i < ss.length; i++ ) {
-            sb.append( (char)Integer.parseInt( ss[i], 2 ) );
+    private String bin2str(String s){
+        try {
+            String[] ss = s.split( " " );
+            StringBuilder sb = new StringBuilder();
+
+            for ( int i = 0; i < ss.length; i++ ) {
+                sb.append( (char)Integer.parseInt( ss[i], 2 ) );
+            }
+            return sb.toString();
         }
-        return sb.toString();
+        catch (Exception e){
+           TostMessage("Input Error");
+            return s.toString();
+        }
+
     }
 
-    private static String b642str(String s){
-        byte[] decoded = Base64.getDecoder().decode(s);
-        return new String(decoded);
+    private String b642str(String s){
+        try {
+            byte[] decoded = Base64.getDecoder().decode(s);
+            return new String(decoded);
+        }
+        catch (Exception e){
+            TostMessage("Input Error");
+            return s.toString();
+        }
     }
+
+    private void TostMessage(String s){
+        Context kontext=getApplicationContext();
+        CharSequence msg=s;
+        int duration= Toast.LENGTH_SHORT;
+
+        Toast t=Toast.makeText(kontext,msg,duration);
+        t.setGravity(Gravity.BOTTOM|Gravity.CENTER,0,0);
+        t.show();
+    }
+
 }
