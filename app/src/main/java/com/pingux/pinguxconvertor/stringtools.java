@@ -58,8 +58,9 @@ public class stringtools extends AppCompatActivity {
                     case "String <-> Base64":
                         stringText.setText(str2b64(txt.toString()));
                         break;
-                    case "Base64 ->> String":
+                    case "Base64 <-> String":
                         stringText.setText(b642str(txt.toString()));
+                        break;
                     default:
                         Context con=getApplicationContext();
                         CharSequence msg="Input Error";
