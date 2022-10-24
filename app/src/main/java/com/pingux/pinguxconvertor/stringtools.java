@@ -97,6 +97,18 @@ public class stringtools extends AppCompatActivity {
                 stringText.setText("");
             }
         });
+
+        selector.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                TostMessage("©pinguX®");
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     private String str2bin(String s){
