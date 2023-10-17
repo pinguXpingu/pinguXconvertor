@@ -1,0 +1,15 @@
+### pinguXconvertor
+A very simple conversion app coded for educational purpose
+#### Included conversions
+* Kilowatt - Horsepower conversion
+* Mile - Kilometer conversion
+* Feet - Meter conversion
+* miliAmperhour - Watthour conversion
+* Knot - Kilometer conversion
+* String conversions
+    + string to binary
+    + string to base64
+    + binary to string
+    + base64 to string
+
+##### The list may extend over time

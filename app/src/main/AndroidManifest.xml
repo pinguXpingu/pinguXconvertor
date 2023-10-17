@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.pingux.pinguxconvertor">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -12,8 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PinguXconvertor">
         <activity
+            android:name=".kw2hp"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:label="pinguXConvertor">
+            android:label="pinguXConvertor"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +25,8 @@
         </activity>
         <activity
             android:name=".mile2km"
-            android:label="Convert Mile to KM">
+            android:label="Convert Mile to KM"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,7 +35,8 @@
         </activity>
         <activity
             android:name=".mah2wh"
-            android:label="Convert mAh to Wh">
+            android:label="Convert mAh to Wh"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,7 +45,8 @@
         </activity>
         <activity
             android:name=".knot2km"
-            android:label="Convert Knots to Km/h">
+            android:label="Convert Knots to Km/h"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,7 +55,8 @@
         </activity>
         <activity
             android:name=".feet2m"
-            android:label="Convert Feets to Meter">
+            android:label="Convert Feets to Meter"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -58,7 +65,8 @@
         </activity>
         <activity
             android:name=".stringtools"
-            android:label="String Conversion Tools">
+            android:label="String Conversion Tools"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

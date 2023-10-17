@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         Button selected=findViewById(R.id.button);
 
         String[] selectorArray=new String[] {
+                "Kw <-> HP",
                 "Mile <-> Km",
                 "Feet <-> M",
                 "mAh <-> Wh",
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Context con=getApplicationContext();
-                CharSequence msg="©pinguX™";
+                CharSequence msg="©pinguX®";
                 int dur= Toast.LENGTH_SHORT;
 
                 Toast t=Toast.makeText(con,msg,dur);
@@ -54,22 +55,26 @@ public class MainActivity extends AppCompatActivity {
                 int sel = (int) selector.getSelectedItemId();
                 switch (sel){
                     case 0:
-                        Intent ml=new Intent(MainActivity.this,mile2km.class);
-                        startActivity(ml);
+                        Intent kw=new Intent(MainActivity.this, kw2hp.class);
+                        startActivity(kw);
                         break;
                     case 1:
-                        Intent mah=new Intent(MainActivity.this,feet2m.class);
-                        startActivity(mah);
+                        Intent mil=new Intent(MainActivity.this,mile2km.class);
+                        startActivity(mil);
                         break;
                     case 2:
-                        Intent knot=new Intent(MainActivity.this,mah2wh.class);
-                        startActivity(knot);
-                        break;
-                    case 3:
-                        Intent feet=new Intent(MainActivity.this,knot2km.class);
+                        Intent feet=new Intent(MainActivity.this,feet2m.class);
                         startActivity(feet);
                         break;
+                    case 3:
+                        Intent mah=new Intent(MainActivity.this,mah2wh.class);
+                        startActivity(mah);
+                        break;
                     case 4:
+                        Intent knot=new Intent(MainActivity.this,knot2km.class);
+                        startActivity(knot);
+                        break;
+                    case 5:
                         Intent str=new Intent(MainActivity.this,stringtools.class);
                         startActivity(str);
                         break;

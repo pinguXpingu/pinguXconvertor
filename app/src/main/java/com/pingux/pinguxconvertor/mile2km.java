@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -26,7 +25,6 @@ public class mile2km extends AppCompatActivity {
         Button mil2km_button=findViewById(R.id.mile2km_convertor);
         EditText mil_Text=(EditText)findViewById(R.id.mile_Text);
         EditText km_Text=(EditText) findViewById(R.id.km_Text);
-
 
         final String[] value = new String[1];
         DecimalFormat df=new DecimalFormat("0.000");
