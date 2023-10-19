@@ -21,7 +21,7 @@ image: openjdk:8-jdk
 variables:
   ANDROID_COMPILE_SDK: "31"
   ANDROID_BUILD_TOOLS: "30.0.3"
-  ANDROID_SDK_TOOLS:   "7519599"
+  ANDROID_SDK_TOOLS:   "3.1_r03"
 
 before_script:
   - apt-get --quiet update --yes
